@@ -1,0 +1,11 @@
+name: Demo dependabot issue
+on:
+  pull_request:
+jobs:
+  demo_dependabot_issue:
+    name: Demo dependabot issue
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required for OIDC
+    steps:
+      - run: env
