@@ -9,6 +9,7 @@ jobs:
   avoid_if_dependabot:
     name: Avoid if dependabot
     runs-on: ubuntu-latest
-    if: "!(github.event.name == 'pull_request' && github.actor == 'dependabot[bot]')"
+    if: "!(github.event_name == 'pull_request' && github.actor == 'dependabot[bot]')"
     steps:
       - run: echo "Hello world"
+      - run: echo '${{ github.actor }}'; echo '${{ github.event_name }}'
