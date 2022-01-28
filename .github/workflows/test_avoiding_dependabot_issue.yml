@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     if: "!(github.event_name == 'pull_request' && github.actor == 'dependabot[bot]')"
     steps:
-      - run: echo "Hello world"
       - run: echo '${{ github.actor }}'; echo '${{ github.event_name }}'
+      - run: echo "${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" ; echo "${ACTIONS_ID_TOKEN_REQUEST_URL}"
