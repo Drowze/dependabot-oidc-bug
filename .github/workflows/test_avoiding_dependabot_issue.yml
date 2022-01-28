@@ -1,0 +1,14 @@
+name: Test avoiding workflow if PR from Dependabot
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  id-token: write # required for OIDC
+jobs:
+  avoid_if_dependabot:
+    name: Avoid if dependabot
+    runs-on: ubuntu-latest
+    if: "!(github.event.name == 'pull_request' && github.actor == 'dependabot[bot]')"
+    steps:
+      - run: echo "Hello world"
